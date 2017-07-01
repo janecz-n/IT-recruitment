@@ -1,0 +1,85 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 80px;
+}
+
+.App-header {
+  background-color: #222;
+  height: 150px;
+  padding: 20px;
+  color: white;
+}
+
+.App-intro {
+  font-size: large;
+}
+
+.App-module {
+  background-color: white;
+  border-style: dotted;
+  padding-bottom: 5px;
+  margin-top: 12px;
+}
+
+.App-module h3 {
+  text-align: left;
+  margin-left: 5%;
+}
+.App-module button {
+  color: white;
+  margin-right: 0%;
+  float: right;
+}
+
+.button-upDown {
+  background-color: #000000;
+}
+
+.button-editModule {
+  background-color: #005C0B;
+}
+
+.button-deleteModule {
+  background-color: #F00;
+}
+
+input[type=text] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+#button-creator  {
+    color: white;
+    padding: 12px 18px;
+    margin-bottom: 10px;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+}
+
+.button-showCreator {
+    background-color: #4DAE45;
+}
+
+.button-hideCreator {
+    background-color: #A1A1A1;
+}
+
+.button-submit {
+    color: white;
+    background-color: #4DAE45;
+    cursor: pointer;
+}
+
+@keyframes App-logo-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
