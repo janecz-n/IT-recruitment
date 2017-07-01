@@ -80,7 +80,7 @@ class Modules extends Component {
 
   goUp(e) {
     var id = Number(e.target.id)
-    if (id > 0) {
+    if (id > 0 && this.state.currentEdit == -1) {
       var mod = this.state.all[id]
       this.state.all[id] = this.state.all[id - 1]
       this.state.all[id - 1] = mod
@@ -90,7 +90,7 @@ class Modules extends Component {
 
   goDown(e) {
     var id = Number(e.target.id)
-    if (id < this.state.all.length - 1) {
+    if (id < this.state.all.length - 1 && this.state.currentEdit == -1) {
       var mod = this.state.all[id]
       this.state.all[id] = this.state.all[id + 1]
       this.state.all[id + 1] = mod
