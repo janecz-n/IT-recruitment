@@ -157,7 +157,8 @@ class AddModule extends Component {
 
   createModule(e) {
     e.preventDefault();
-    this.props.callbackFromParent(this.state.title, this.state.content);
+    if (this.state.title.length)
+      this.props.callbackFromParent(this.state.title, this.state.content);
   }
 
   render() {
