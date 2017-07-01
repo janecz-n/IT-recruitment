@@ -1,4 +1,6 @@
 # IT-recruitment
 
-Go to teach/
+Project made with React
+
+Go to teach/<br/>
 use npm start
