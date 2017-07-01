@@ -82,13 +82,8 @@ class Modules extends Component {
     var id = Number(e.target.id)
     if (id > 0) {
       var mod = this.state.all[id]
-      var nextmod = this.state.all[id - 1]
-      var editTitle = mod.title
-      var editContent = mod.content
-      mod.title = nextmod.title
-      mod.content = nextmod.content
-      nextmod.title = editTitle
-      nextmod.content = editContent
+      this.state.all[id] = this.state.all[id - 1]
+      this.state.all[id - 1] = mod
       this.forceUpdate()
     }
   }
@@ -97,13 +92,8 @@ class Modules extends Component {
     var id = Number(e.target.id)
     if (id < this.state.all.length - 1) {
       var mod = this.state.all[id]
-      var nextmod = this.state.all[id + 1]
-      var editTitle = mod.title
-      var editContent = mod.content
-      mod.title = nextmod.title
-      mod.content = nextmod.content
-      nextmod.title = editTitle
-      nextmod.content = editContent
+      this.state.all[id] = this.state.all[id + 1]
+      this.state.all[id + 1] = mod
       this.forceUpdate()
     }
   }
