@@ -93,7 +93,7 @@ class Modules extends Component {
 
   render() {
     var mod = this.state.all.map((step, move) => {
-      if (move == this.state.currentEdit) {
+      if (move === this.state.currentEdit) {
         return (
           <div className="App-module" key={move}>
             <button className="button-deleteModule" id={move} onClick={this.cancelEdit.bind(this)}>cancel</button>
