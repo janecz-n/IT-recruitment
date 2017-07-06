@@ -47,15 +47,17 @@ class Modules extends Component {
   }
 
   deleteModule(e) {
+    var id = Number(e.target.id)
     const data = this.state.all;
     this.setState({
-      all: [...data.slice(0, e.target.id), ...data.slice(e.target.id + 1, this.state.all.length)]
+      all: [...data.slice(0, id), ...data.slice(id + 1, this.state.all.length)]
     });
   }
 
   editModule(e) {
-    const module = this.state.all[e.target.id]
-    this.setState({currentEdit: e.target.id, editTitle: module.title, editContent: module.content})
+    var id = Number(e.target.id)
+    const module = this.state.all[id]
+    this.setState({currentEdit: id, editTitle: module.title, editContent: module.content})
   }
 
   cancelEdit(e) {
@@ -72,7 +74,8 @@ class Modules extends Component {
   }
 
   validateEditModule(e) {
-    const module = this.state.all[this.state.currentEdit]
+    var id = Number(this.state.currentEdit)
+    const module = this.state.all[id]
     module.title = this.state.editTitle
     module.content = this.state.editContent
     this.setState({currentEdit: -1, editTitle: "", editContent: ""})
