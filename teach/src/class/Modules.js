@@ -17,8 +17,8 @@ class Modules extends Component {
     };
   }
 
-  addModule (title, content) {
-    this.setState ({
+  async addModule (title, content) {
+    await this.setState ({
       all: this.state.all.concat([{
         title: title,
         content: content
