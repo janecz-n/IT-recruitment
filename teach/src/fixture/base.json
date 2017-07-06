@@ -1,0 +1,22 @@
+{
+  "fixture" : [{
+    "title": "Old Language",
+    "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer at sem ipsum. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris eu tortor et quam malesuada porta vitae vel massa."
+  },
+  {
+    "title": "Spanish",
+    "content": "Pepito, la reĝo de la torto!"
+  },
+  {
+    "title": "Math",
+    "content": "3 * PI = ?"
+  },
+  {
+    "title": "Photographie",
+    "content": "Reglages de focale en 3 leçons"
+  },
+  {
+    "title": "Titre",
+    "content": "Contenu"
+  }]
+}

@@ -1,25 +1,19 @@
 import React, { Component } from 'react';
 import AddModule from './AddModule.js'
+import fixture from '../fixture/base.json'
 
 class Modules extends Component {
   constructor() {
     super();
     this.state = {
-      all: [{
-        title: "Old Language",
-        content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer at sem ipsum. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris eu tortor et quam malesuada porta vitae vel massa."
-      },
-      {
-        title: "Spanish",
-        content: "Pepito, la reĝo de la torto!"
-      }],
+      all:  fixture.fixture,
       currentEdit: -1,
       editTitle: "",
       editContent: ""
     };
   }
 
-  addModule(title, content) {
+  addModule (title, content) {
     this.setState ({
       all: this.state.all.concat([{
         title: title,
