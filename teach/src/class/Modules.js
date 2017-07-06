@@ -1,12 +1,16 @@
 import React, { Component } from 'react';
 import AddModule from './AddModule.js'
-import fixture from '../fixture/base.json'
+import fixtures from '../fixture/base.json'
+
+function sleep(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
 
 class Modules extends Component {
   constructor() {
     super();
     this.state = {
-      all:  fixture.fixture,
+      all:  [],
       currentEdit: -1,
       editTitle: "",
       editContent: ""
@@ -20,6 +24,13 @@ class Modules extends Component {
         content: content
       }])
     });
+  }
+
+  async loadFixture () {
+    for (var id in fixtures) {
+      await this.addModule(fixtures[id].title, fixtures[id].content)
+      await sleep(1000)
+    }
   }
 
   deleteModule(e) {
@@ -81,7 +92,7 @@ class Modules extends Component {
   }
 
   render() {
-    const mod = this.state.all.map((step, move) => {
+    var mod = this.state.all.map((step, move) => {
       if (move == this.state.currentEdit) {
         return (
           <div className="App-module" key={move}>
@@ -103,9 +114,9 @@ class Modules extends Component {
         </div>
       );
     });
-
     return (
       <div className="App-modules">
+        <button className="button-loadFixture" id="load" onClick={this.loadFixture.bind(this)}>Load test modules (async 1s/module)</button>
         <AddModule callbackFromParent={this.addModule.bind(this)}/>
         {mod}
       </div>
