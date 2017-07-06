@@ -24,10 +24,10 @@ class AddModule extends Component {
     }
   }
 
-  createModule(e) {
+  async createModule(e) {
     e.preventDefault();
     if (this.state.title.length)
-      this.props.callbackFromParent(this.state.title, this.state.content);
+       await this.props.callbackFromParent(this.state.title, this.state.content);
   }
 
   render() {
