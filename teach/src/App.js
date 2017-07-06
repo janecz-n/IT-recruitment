@@ -47,19 +47,19 @@ class Modules extends Component {
   }
 
   deleteModule(e) {
-    this.state.all.splice(e.target.id, 1)
-    this.forceUpdate()
+    const data = this.state.all;
+    this.setState({
+      all: [...data.slice(0, e.target.id), ...data.slice(e.target.id + 1, this.state.all.length)]
+    });
   }
 
   editModule(e) {
     const module = this.state.all[e.target.id]
     this.setState({currentEdit: e.target.id, editTitle: module.title, editContent: module.content})
-    this.forceUpdate()
   }
 
   cancelEdit(e) {
     this.setState({currentEdit: -1, editTitle: "", editContent: ""})
-    this.forceUpdate()
   }
 
   handleChange(e) {
@@ -80,21 +80,21 @@ class Modules extends Component {
 
   goUp(e) {
     var id = Number(e.target.id)
-    if (id > 0 && this.state.currentEdit == -1) {
-      var mod = this.state.all[id]
-      this.state.all[id] = this.state.all[id - 1]
-      this.state.all[id - 1] = mod
-      this.forceUpdate()
+    if (id > 0 && this.state.currentEdit === -1) {
+      const data = this.state.all;
+      this.setState({
+        all: [...data.slice(0, id - 1), data[id], data[id - 1], ...data.slice(id + 1, this.state.all.length)]
+      });
     }
   }
 
   goDown(e) {
     var id = Number(e.target.id)
-    if (id < this.state.all.length - 1 && this.state.currentEdit == -1) {
-      var mod = this.state.all[id]
-      this.state.all[id] = this.state.all[id + 1]
-      this.state.all[id + 1] = mod
-      this.forceUpdate()
+    if (id < this.state.all.length - 1 && this.state.currentEdit === -1) {
+      const data = this.state.all;
+      this.setState({
+        all: [...data.slice(0, id), data[id + 1], data[id], ...data.slice(id + 2, this.state.all.length)]
+      });
     }
   }
 
