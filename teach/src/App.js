@@ -75,10 +75,13 @@ class Modules extends Component {
 
   validateEditModule(e) {
     var id = Number(this.state.currentEdit)
-    const module = this.state.all[id]
+    var module = {}
     module.title = this.state.editTitle
     module.content = this.state.editContent
-    this.setState({currentEdit: -1, editTitle: "", editContent: ""})
+    this.setState({all: [...this.state.all.slice(0, id), module, ...this.state.all.slice(id + 1, this.state.all.length)],
+      currentEdit: -1,
+      editTitle: "",
+      editContent: ""})
   }
 
   goUp(e) {
